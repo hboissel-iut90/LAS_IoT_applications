@@ -7,5 +7,6 @@ To the init the server, you'll need so node packets like :
 - ws : create WebSocket to communicate with the Arduino Nano 33 IoT
 - sqlite3 : SQLite server management
 - net : TCP connexion management
+- chartjs : create charts
 
 Install the packets :  ```npm i express ws sqlite3 net chartjs```  
