@@ -1,5 +1,4 @@
-const { DatabaseSync } = require('node:sqlite');
-const db = new DatabaseSync(':memory:');
+const { db } = require("../initDB");
 
 const getAccelerometer = (req, res) => {
   const query = "SELECT * FROM accelerometer";
@@ -8,8 +7,8 @@ const getAccelerometer = (req, res) => {
 };
 
 const addAccelerometer = (req, res) => {
-  const query = "INSERT INTO accelerometer (x, y, z, timestamp) VALUES (?, ?, ?, ?)";
-  db.prepare(query).run(req.body.x, req.body.y, req.body.z, req.body.timestamp);
+  const query = "INSERT INTO accelerometer (x, y, z) VALUES (?, ?, ?)";
+  db.prepare(query).run(req.body.x, req.body.y, req.body.z);
   res.json({ message: "Accelerometer data added successfully" });
 };
 

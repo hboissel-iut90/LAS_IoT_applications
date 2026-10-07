@@ -21,8 +21,11 @@ const initDBController = () => {
     z REAL NOT NULL,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
     )`).run();
+
+    console.log("Database initialized successfully.");
 }
 
 module.exports = {
-    initDBController
+    initDBController,
+    db
 };

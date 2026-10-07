@@ -1,5 +1,4 @@
-const { DatabaseSync } = require('node:sqlite');
-const db = new DatabaseSync(':memory:');
+const { db } = require("../initDB");
 
 const getHumidity = (req, res) => {
   const query = "SELECT * FROM humidity";
@@ -8,8 +7,8 @@ const getHumidity = (req, res) => {
 };
 
 const addHumidity = (req, res) => {
-  const query = "INSERT INTO humidity (value, timestamp) VALUES (?, ?)";
-  db.prepare(query).run(req.body.value, req.body.timestamp);
+  const query = "INSERT INTO humidity (value) VALUES (?)";
+  db.prepare(query).run(req.body.value);
   res.json({ message: "Humidity data added successfully" });
 };
 

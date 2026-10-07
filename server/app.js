@@ -7,6 +7,8 @@ const port = 8080;
 
 initDBController();
 
+app.use(express.json());
+
 app.use(route);
 
 app.get("/", (req, res) => {
