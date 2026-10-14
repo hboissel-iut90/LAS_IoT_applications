@@ -13,10 +13,6 @@ router.get("/accelerometer", accelerometerController.getAccelerometer);
 
 ////////////// Register data //////////////
 
-router.post("/temperature", temperatureController.addTemperature);
-
-router.post("/humidity", humidityController.addHumidity);
-
 router.post("/accelerometer", accelerometerController.addAccelerometer);
 
 module.exports = router;

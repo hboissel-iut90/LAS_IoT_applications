@@ -1,4 +1,5 @@
-const { db } = require("../initDB");
+const { DatabaseSync } = require("node:sqlite");
+const db = new DatabaseSync("./database.sqlite");
 
 const getAccelerometer = (req, res) => {
   const query = "SELECT * FROM accelerometer";
