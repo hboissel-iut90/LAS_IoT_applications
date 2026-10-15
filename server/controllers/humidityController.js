@@ -8,12 +8,12 @@ const getHumidity = (req, res) => {
 };
 
 const addHumidity = (data) => {
-  if (!data.value || data.value === "") {
+  if (!data || data === "") {
     return { message: "Humidity value is required" };
   }
-  console.log("Received humidity value:", data.humidity);
+  console.log("Received humidity value:", data);
   const query = "INSERT INTO humidity (value) VALUES (?)";
-  db.prepare(query).run(data.humidity);
+  db.prepare(query).run(data);
   return { message: "Humidity data added successfully" };
 };
 

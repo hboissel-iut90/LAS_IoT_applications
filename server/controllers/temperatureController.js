@@ -8,12 +8,12 @@ const getTemperature = (req, res) => {
 };
 
 const addTemperature = (data) => {
-  if (!data.value || data.value === "") {
+  if (!data || data === "") {
     return { message: "Temperature value is required" };
   }
-  console.log("Received temperature value:", data.temperature);
+  console.log("Received temperature value:", data);
   const query = "INSERT INTO temperature (value) VALUES (?)";
-  db.prepare(query).run(data.temperature);
+  db.prepare(query).run(data);
   return { message: "Temperature data added successfully" };
 };
 

@@ -24,7 +24,7 @@ let initTCPServer = () => {
 
         // Process the message
         try {
-          const parsedMessage = JSON.parse(message);
+          let parsedMessage = JSON.parse(message);
           console.log("Received message:", parsedMessage);
 
           // Handle different message types
@@ -36,8 +36,9 @@ let initTCPServer = () => {
                 }) + "\n",
               );
 
-              const temperatureResult =
-                temperatureController.addTemperature(parsedMessage);
+              const temperatureResult = temperatureController.addTemperature(
+                parsedMessage.value,
+              );
 
               socket.write(
                 JSON.stringify({
@@ -56,8 +57,9 @@ let initTCPServer = () => {
                 }) + "\n",
               );
 
-              const humidityResult =
-                humidityController.addHumidity(parsedMessage);
+              const humidityResult = humidityController.addHumidity(
+                parsedMessag.value,
+              );
 
               socket.write(
                 JSON.stringify({
