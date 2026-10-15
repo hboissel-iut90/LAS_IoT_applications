@@ -18,7 +18,7 @@ const port = 8080;
  * If you need to create the database, uncomment the following line.
  * WARNING ! This will delete the current tables and create new ones.
  */
-// initDBController();
+initDBController();
 
 app.use(express.json());
 

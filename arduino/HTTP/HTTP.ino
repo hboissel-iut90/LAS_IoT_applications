@@ -1,13 +1,13 @@
 #include <Arduino_LSM6DS3.h>
 #include <WiFiNINA.h>
 
-const char* ssid = "xavier";
+const char* ssid = "hotspot";
 const char* password = "12345678";
 
 
-const char* serverAddress = "192.168.1.100"; 
-int port = 3000;
-const char* route = "/api/data";
+const char* serverAddress = "192.168.137.1"; 
+int port = 8080;
+const char* route = "/accelerometer";
 
 WiFiClient client;
 

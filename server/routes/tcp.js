@@ -58,7 +58,7 @@ let initTCPServer = () => {
               );
 
               const humidityResult = humidityController.addHumidity(
-                parsedMessag.value,
+                parsedMessage.value,
               );
 
               socket.write(
