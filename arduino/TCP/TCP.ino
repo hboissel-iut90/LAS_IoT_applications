@@ -1,10 +1,10 @@
 #include <WiFi.h>
 #include <DHT.h>
 
-const char* ssid = "xavier";
+const char* ssid = "hotspot";
 const char* password = "12345678";
 
-const char* serverAddress = "192.168.1.100"; 
+const char* serverAddress = "192.168.137.1"; 
 const uint16_t serverPort = 8081;            
 
 #define DHTPIN 19      
@@ -22,15 +22,10 @@ void sendSensorData(float temperature, float humidity) {
   }
   Serial.println("Connected!");
 
-  // 1. Format and send the temperature payload
-  // Expected by server: {"type": "temperature", "value": 25.0}
-  // client.println() automatically appends the '\n' the server is looking for
   String tempPayload = "{\"type\": \"temperature\", \"value\": " + String(temperature, 1) + "}";
   client.println(tempPayload);
   Serial.println("Data sent: " + tempPayload);
 
-  // 2. Format and send the humidity payload
-  // Expected by server: {"type": "humidity", "value": 50.0}
   String humPayload = "{\"type\": \"humidity\", \"value\": " + String(humidity, 1) + "}";
   client.println(humPayload);
   Serial.println("Data sent: " + humPayload);
